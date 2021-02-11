@@ -1,5 +1,5 @@
 const newRelix = require('newrelic');
-const bundles = require('./bundles.js');
+const bundles = require('../../public/bundles.js');
 const api = require('./api.js');
 
 module.exports = {

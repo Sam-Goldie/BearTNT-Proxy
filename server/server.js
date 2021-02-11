@@ -4,6 +4,7 @@ const path = require('path');
 const router = require('./router');
 const newRelic = require('newrelic');
 const cors = require('cors');
+const axios = require('axios');
 console.log('inside the proxys express server');
 
 const PUBLIC_DIR = path.resolve(__dirname, '..', 'public');
@@ -30,7 +31,12 @@ app.get('/loaderio-6f6cd439134575f094836a6c2e629285', (req, res) => {
 console.log('ABOUT TO APP.GET, I BELIEVE!');
 app.get('/listing/*', (req, res) => {
   console.log('Im inside app.get!');
-  res.sendFile(path.resolve(__dirname, '..', 'public/index.html'));
+  // doesn't this have to be an api request to the service module?
+  // HIGHEST POSSIBLE PRIORITY
+  axios.get('http://localhost:3333/api/reviews-module/reviews/:ids')
+    .then((response) => {
+      res.sendFile(response);
+    })
 });
 
 module.exports = app;

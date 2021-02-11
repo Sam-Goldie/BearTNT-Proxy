@@ -53,7 +53,7 @@ module.exports = {
   //  },
     service3: {
       api: ['/reviews-module/reviews/:id', '/reviews-module/ratings/:id'],
-      url: 'http://18.222.249.131:3333/',
+      url: 'localhost:3333/',
       bundle: 'bundle.js',
     }
   //  service4: {
